@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Team Task Board",
+  title: "OrganizeIt - Mini Kanban Board",
   description: "Kanban board untuk manajemen tugas tim",
 };
 

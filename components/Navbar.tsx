@@ -7,7 +7,7 @@ export default function Navbar() {
         <div className="w-8 h-8 bg-zinc-900 rounded-lg flex items-center justify-center text-white shadow-sm">
           <Kanban size={18} />
         </div>
-        <h1 className="text-lg font-semibold tracking-tight text-zinc-900">TASKBOARD.</h1>
+        <h1 className="text-lg font-semibold tracking-tight text-zinc-900">OrganizeIt</h1>
       </div>
     </nav>
   );
