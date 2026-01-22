@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+body {
+  font-family: var(--font-inter, 'Inter', sans-serif);
+}
+
+/* Custom Scrollbar for cleaner look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e4e4e7;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4d4d8;
+}
+
+.ghost-card {
+  opacity: 0.5;
+  background: #f4f4f5;
+  border: 1px dashed #a1a1aa;
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
