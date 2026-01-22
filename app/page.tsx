@@ -16,7 +16,7 @@ export default function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentTask, setCurrentTask] = useState<Task | null>(null);
-  const [currentStatus, setCurrentStatus] = useState<string>('todo');
+  const [currentStatus, setCurrentStatus] = useState<Task['status']>('todo');
 
   useEffect(() => {
     const savedTasks = localStorage.getItem('kanbanTasks');
@@ -33,7 +33,7 @@ export default function Home() {
     }
   }, [tasks]);
 
-  const handleAddTask = (status: string) => {
+  const handleAddTask = (status: Task['status']) => {
     setCurrentTask(null);
     setCurrentStatus(status);
     setIsModalOpen(true);
@@ -75,16 +75,16 @@ export default function Home() {
     e.preventDefault();
   };
 
-  const handleDrop = (e: React.DragEvent, newStatus: string) => {
+  const handleDrop = (e: React.DragEvent, newStatus: Task['status']) => {
     e.preventDefault();
     const id = e.dataTransfer.getData('text');
     handleMoveTask(id, newStatus);
   };
 
-  const handleMoveTask = (id: string, newStatus: string) => {
+  const handleMoveTask = (id: string, newStatus: Task['status']) => {
     setTasks(
       tasks.map((t) =>
-        t.id === id ? { ...t, status: newStatus as 'todo' | 'doing' | 'done' } : t
+        t.id === id ? { ...t, status: newStatus } : t
       )
     );
   };

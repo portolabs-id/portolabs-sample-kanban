@@ -1,17 +1,18 @@
+import { PlusCircle } from 'lucide-react';
 import { Task } from '@/types';
 import TaskCard from './TaskCard';
 
 interface ColumnProps {
-  status: 'todo' | 'doing' | 'done';
+  status: Task['status'];
   title: string;
   color: string;
   tasks: Task[];
-  onAddTask: (status: string) => void;
+  onAddTask: (status: Task['status']) => void;
   onEditTask: (id: string) => void;
-  onDrop: (e: React.DragEvent, status: string) => void;
+  onDrop: (e: React.DragEvent, status: Task['status']) => void;
   onDragOver: (e: React.DragEvent) => void;
   onDragStart: (e: React.DragEvent, id: string) => void;
-  onMoveTask: (id: string, newStatus: string) => void;
+  onMoveTask: (id: string, newStatus: Task['status']) => void;
 }
 
 export default function Column({
@@ -38,7 +39,7 @@ export default function Column({
           onClick={() => onAddTask(status)}
           className="text-zinc-400 hover:text-zinc-900 transition-colors p-1 rounded hover:bg-zinc-200/50"
         >
-          <iconify-icon icon="solar:add-circle-linear" width="20"></iconify-icon>
+          <PlusCircle size={20} />
         </button>
       </div>
 

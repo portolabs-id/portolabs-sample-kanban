@@ -20,9 +20,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <head>
-        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" async></script>
-      </head>
       <body className={`${inter.variable} bg-zinc-50 text-zinc-900 antialiased h-screen flex flex-col overflow-hidden selection:bg-zinc-200`}>
         {children}
       </body>

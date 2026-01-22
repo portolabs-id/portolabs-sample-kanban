@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import { XCircle, Save, Trash2 } from 'lucide-react';
 import { Task } from '@/types';
 
 interface TaskModalProps {
   isOpen: boolean;
   task: Task | null;
-  status: string;
+  status: Task['status'];
   onClose: () => void;
   onSave: (task: Partial<Task>) => void;
   onDelete: (id: string) => void;
@@ -65,7 +66,7 @@ export default function TaskModal({
             {task ? 'Edit Tugas' : 'Tugas Baru'}
           </h3>
           <button onClick={onClose} className="text-zinc-400 hover:text-zinc-600">
-            <iconify-icon icon="solar:close-circle-linear" width="24"></iconify-icon>
+            <XCircle size={24} />
           </button>
         </div>
 
@@ -100,7 +101,7 @@ export default function TaskModal({
               className="flex-1 px-4 py-2 text-sm font-medium text-white bg-zinc-900 rounded-lg hover:bg-zinc-800 shadow-sm transition-all flex items-center justify-center gap-2"
             >
               <span>Simpan</span>
-              <iconify-icon icon="solar:disk-linear" width="16"></iconify-icon>
+              <Save size={16} />
             </button>
           </div>
         </form>
@@ -111,7 +112,7 @@ export default function TaskModal({
               onClick={handleDelete}
               className="w-full text-xs font-medium text-red-500 hover:text-red-600 flex items-center justify-center gap-2 py-2"
             >
-              <iconify-icon icon="solar:trash-bin-trash-linear" width="14"></iconify-icon>
+              <Trash2 size={14} />
               Hapus Tugas
             </button>
           </div>
